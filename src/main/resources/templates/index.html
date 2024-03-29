@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+     
+        .divstyle{
+    
+        margin:20px;
+        }
+        h2 {
+        margin: 10px;
+            color: #333;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="divstyle">
+    <center><h2>Add Employee</h2></center>
+    <form action="#" th:action="@{/employee/add}" th:object="${employee}" method="post">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" />
+        <label>Age:</label>
+        <input type="number" th:field="*{age}" />
+        <label>Department:</label>
+        <input type="text" th:field="*{department}" />
+        <label>Experience:</label>
+        <input type="number" th:field="*{experience}" />
+        <input type="submit" value="Add Employee" />
+    </form>
+    <center><a href="/employee">Back to Employee List</a></center>
+    </div>
+</body>
+</html>
+

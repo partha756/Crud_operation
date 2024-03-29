@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Transport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+     
+        .divstyle{
+    
+        margin:20px;
+        }
+        h2 {
+        margin: 10px;
+            color: #333;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="divstyle">
+    <center><h2>Add Transport Details</h2></center>
+    <form action="#" th:action="@{/transport/add}" th:object="${transport}" method="post">
+        <label>DriverName:</label>
+        <input type="text" th:field="*{driverName}" />
+                <label>VehicalName:</label>
+        <input type="text" th:field="*{vehicalName}" />
+        <label>VehicalNumber:</label>
+        <input type="text" th:field="*{vehicalNumber}" />
+        <label>StartingPoint:</label>
+        <input type="text" th:field="*{startingPoint}" />
+                <label>endingPoint:</label>
+        <input type="text" th:field="*{endingPoint}" />
+                <label>TransportType:</label>
+        <input type="text" th:field="*{transport}" />
+        <label>VehicalLoad:</label>
+        <input type="number" th:field="*{vehicalLoad}" />
+            <label>VehicalCapacity:</label>
+        <input type="number" th:field="*{vehicalCapacity}" />
+        <input type="submit" value="Add Transport" />
+    </form>
+    <center><a href="/transport">Back to Transport List</a></center>
+    </div>
+</body>
+</html>
+

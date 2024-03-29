@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transport List</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav>
+    <ul>
+    <li><a href="/employee">Employee</a></li>
+     <li><a href="/transport">Transport</a></li>
+     
+       </ul>
+    </nav>
+   <div class="sticky"> <a href="/transport/add" class="add-link"><button class="addemployee">Add Transport</button></a>
+   </div>
+  <div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DriverName</th>
+                <th>VehicalName</th>
+                <th>VehicalNumber</th>
+                <th>StartingPoint</th>
+                 <th>EndingPoint</th>
+                  <th>Transport</th>
+                   <th>VehicalLoad</th>
+                    <th>VehicalCapacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="emp : ${tran}">
+                <td th:text="${emp.id}"></td>
+                <td th:text="${emp.driverName}"></td>
+                 <td th:text="${emp.vehicalName}"></td>
+                  <td th:text="${emp.vehicalNumber}"></td>
+                   <td th:text="${emp.startingPoint}"></td>
+                    <td th:text="${emp.endingPoint}"></td>
+                     <td th:text="${emp.transport}"></td>
+                <td th:text="${emp.vehicalLoad}"></td>
+                <td th:text="${emp.vehicalCapacity}"></td>
+               
+                <td>
+                <div >
+                    <a th:href="@{/transport/edit/{id}(id=${emp.id})}" class="edit-link"><button class="edit">Edit</button></a>
+                    <a th:href="@{/transport/delete/{id}(id=${emp.id})}" class="delete-link"><button class="delete">Delete</button></a>
+                </div></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+     <button onclick="goToTop()" class="go-to-top-button" id="goToTopBtn" title="Go to Top"></button>
+
+    <script>
+        // JavaScript function to scroll to the top of the page
+        function goToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+        }
+
+        // Show the button when user scrolls down 20px from the top of the document
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("goToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("goToTopBtn").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
